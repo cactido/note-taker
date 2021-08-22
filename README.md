@@ -8,5 +8,7 @@ Note Taker allows you to create simple notes to be saved online. Click on the no
 - Bootstrap
 
 ## Links
-[Deployed Link](https://mysterious-taiga-00771.herokuapp.com/)  
+[Deployed Link](https://mysterious-taiga-00771.herokuapp.com/) 
 [GitHub Repository](https://github.com/cactido/note-taker)  
+
+![ss](https://user-images.githubusercontent.com/82249567/130371436-db61f85f-007e-4fd8-8131-f3902fa8851e.png)
