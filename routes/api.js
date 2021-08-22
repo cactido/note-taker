@@ -13,10 +13,23 @@ router.post('/notes', (req, res) => {
     req.body.id = notes.length;
     // add new note to the existing notes and overwrite the existing database with the updated one
     // then returns the new db
-    db = notes;
+    let db = notes;
     db.push(req.body);
-    fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(notes))
-    res.json(notes);
+    fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(db));
+    res.json(db);
+})
+//delete route for /api/notes/
+router.delete('/notes/:id', (req, res) => {
+    let db = notes;
+    // remove the requested note from the database array
+    console.log(db[req.params.id]);
+    db.splice(req.params.id, 1);
+    // reassign remaining notes 'id' so the ids can keep being used to reference the proper position
+    // in the database array
+    for (let i = 0; i < db.length; i++) { db[i].id = i; }
+    // rewrite the database file
+    fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(db));
+    res.json(db);
 })
 
 module.exports = router;
